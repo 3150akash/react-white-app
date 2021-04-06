@@ -1,0 +1,79 @@
+{
+	"homepage": "react-white-app",
+	"name": "white-app",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@types/react": "^17.0.3",
+		"@types/react-dom": "^17.0.0",
+		"eslint": "^7.22.0",
+		"eslint-config-airbnb": "^18.2.1",
+		"eslint-config-prettier": "^8.1.0",
+		"eslint-plugin-import": "^2.22.1",
+		"eslint-plugin-jsx-a11y": "^6.4.1",
+		"eslint-plugin-react": "^7.23.1",
+		"eslint-plugin-react-hooks": "^4.2.0",
+		"global": "^4.4.0",
+		"gulp": "^4.0.2",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"react-scripts": "4.0.3",
+		"web-vitals": "^1.0.1"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^12.0.1",
+		"@commitlint/config-conventional": "^12.0.1",
+		"@testing-library/jest-dom": "^5.11.4",
+		"@testing-library/react": "^11.1.0",
+		"@testing-library/user-event": "^12.1.10",
+		"@types/jest": "^26.0.15",
+		"@types/node": "^12.0.0",
+		"@typescript-eslint/eslint-plugin": "^4.19.0",
+		"@typescript-eslint/parser": "^4.19.0",
+		"gh-pages": "^3.1.0",
+		"husky": "^4.3.8",
+		"lint-staged": "^10.5.4",
+		"typescript": "^4.1.2"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"test:coverage": "npm run test -- --coverage",
+		"eject": "react-scripts eject",
+		"lint": "eslint --ext .tsx,.ts ./src/",
+		"lint:fix": "yarn lint --fix",
+		"github:deploy": "yarn build && gh-pages --repo https://gitlab.com/white-app/react-white-app.git --dist build"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged && yarn test -- --watchAll=false",
+			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+		}
+	},
+	"lint-staged": {
+		"src/**/*.{js,json,scss,md}": [
+			"prettier --write"
+		],
+		"src/**/*.{ts,tsx}": [
+			"eslint --fix"
+		]
+	},
+	"commitlint": {
+		"extends": [
+			"@commitlint/config-conventional"
+		]
+	}
+}

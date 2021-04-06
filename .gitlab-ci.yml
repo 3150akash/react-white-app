@@ -1,0 +1,77 @@
+cache:
+  paths:
+    - node_modules/
+image: node:12.14.0
+stages:
+    - test
+    - build
+    - deployment
+    - deploy
+#    - production
+test:
+    stage: test
+    script:
+        - echo "installing packages"
+        - yarn install
+        - echo "validating code standard"
+        - yarn lint
+        - echo "validating tests"
+        - yarn test:coverage
+        - echo "all tests passed"
+    coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
+build:
+    stage: build
+    script:
+        - echo "Building deploy package"
+        - yarn
+        - yarn build
+        - echo "Build successful"
+    artifacts:
+      paths:
+        - build
+
+dev deployment:
+    stage: deployment
+    script:
+      - git push https://${HEROKU_USER_NAME}:${HEROKU_SECRET_KEY}@git.heroku.com/react-white-app-dev.git HEAD:master
+      - echo "Deployed to development server"
+    environment:
+      name: development
+      url: https://react-white-app-dev.herokuapp.com/
+    only:
+      - dev
+staging deployment:
+    stage: deployment
+    script:
+      - git push https://${HEROKU_USER_NAME}:${HEROKU_SECRET_KEY}@git.heroku.com/react-white-app-stag.git HEAD:master
+      - echo "Deployed to staging server"
+    environment:
+      name: staging
+      url: https://react-white-app-stag.herokuapp.com/
+    only:
+      - staging
+prod deployment:
+    stage: deployment
+    script:
+      - git push https://${HEROKU_USER_NAME}:${HEROKU_SECRET_KEY}@git.heroku.com/react-white-app-prod.git HEAD:master
+      - echo "Deployed to production server"
+    environment:
+      name: production
+      url: https://react-white-app-prod.herokuapp.com/
+    only:
+      - master
+pages:
+  stage: deploy
+  dependencies:
+    - build
+  script:
+    - rm -rf public
+    - cp build/index.html build/404.html
+    # Rename the CRA `build` folder to `public`
+    - mv build public
+  artifacts:
+    paths:
+      - public
+  only:
+    - gitlab-pages
+
