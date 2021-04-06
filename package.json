@@ -43,7 +43,7 @@
 		"eject": "react-scripts eject",
 		"lint": "eslint --ext .tsx,.ts ./src/",
 		"lint:fix": "yarn lint --fix",
-		"github:deploy": "yarn build && gh-pages --repo https://gitlab.com/white-app/react-white-app.git --dist build"
+		"github:deploy": "yarn build && gh-pages --dist build"
 	},
 	"browserslist": {
 		"production": [
