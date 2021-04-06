@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/react-white-app/static/css/main.9d5b29c0.chunk.css",
+    "main.js": "/react-white-app/static/js/main.c90f7d58.chunk.js",
+    "main.js.map": "/react-white-app/static/js/main.c90f7d58.chunk.js.map",
+    "runtime-main.js": "/react-white-app/static/js/runtime-main.695472ae.js",
+    "runtime-main.js.map": "/react-white-app/static/js/runtime-main.695472ae.js.map",
+    "static/js/2.9e21192c.chunk.js": "/react-white-app/static/js/2.9e21192c.chunk.js",
+    "static/js/2.9e21192c.chunk.js.map": "/react-white-app/static/js/2.9e21192c.chunk.js.map",
+    "static/js/3.fe0a7b0a.chunk.js": "/react-white-app/static/js/3.fe0a7b0a.chunk.js",
+    "static/js/3.fe0a7b0a.chunk.js.map": "/react-white-app/static/js/3.fe0a7b0a.chunk.js.map",
+    "index.html": "/react-white-app/index.html",
+    "static/css/main.9d5b29c0.chunk.css.map": "/react-white-app/static/css/main.9d5b29c0.chunk.css.map",
+    "static/js/2.9e21192c.chunk.js.LICENSE.txt": "/react-white-app/static/js/2.9e21192c.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/react-white-app/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.695472ae.js",
+    "static/js/2.9e21192c.chunk.js",
+    "static/css/main.9d5b29c0.chunk.css",
+    "static/js/main.c90f7d58.chunk.js"
+  ]
+}
